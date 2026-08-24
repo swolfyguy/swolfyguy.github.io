@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandeep Kokare — Senior Python Engineer</title>
+<meta name="description" content="Senior Python Engineer with 8+ years building distributed systems, FastAPI services and Airflow/PySpark data pipelines on Azure and AWS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9EBEF;
+  --card:#F5F6F9;
+  --ink:#14161A;
+  --ink-2:#525A66;
+  --rule:#C7CCD6;
+  --cobalt:#1B3FD8;
+  --cobalt-soft:rgba(27,63,216,.09);
+  --sans:"Archivo",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:16px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+a{color:var(--cobalt);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 0}
+.eyebrow{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-2);margin:0 0 18px;
+}
+h1{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2.7rem,8.4vw,5.4rem);line-height:.94;letter-spacing:-.035em;
+  margin:0 0 16px;
+}
+.role{
+  font-family:var(--sans);font-weight:600;font-size:clamp(1rem,2.4vw,1.35rem);
+  letter-spacing:-.01em;margin:0 0 26px;color:var(--ink);
+}
+.role span{color:var(--ink-2);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 46px;padding:0;list-style:none}
+.links a,.links button{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;
+  border:1px solid var(--rule);background:transparent;color:var(--ink);
+  padding:8px 13px;border-radius:2px;cursor:pointer;transition:.18s;
+  display:inline-block;
+}
+.links a:hover,.links button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- signature: career pipeline ---------- */
+.pipeline{
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:22px 0 24px;margin-bottom:56px;overflow-x:auto;
+  scrollbar-width:thin;
+}
+.pipeline-label{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:16px;
+}
+.dag{display:flex;align-items:flex-start;min-width:640px;padding-bottom:4px}
+.node{
+  flex:1;position:relative;background:none;border:0;padding:0 12px 0 0;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;
+}
+.node::before{
+  content:"";position:absolute;left:11px;right:0;top:5px;height:1px;background:var(--rule);
+}
+.node:last-child::before{display:none}
+.node .dot{
+  position:relative;z-index:1;display:block;width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--ink-2);margin-bottom:12px;transition:.18s;
+}
+.node.now .dot{background:var(--cobalt);border-color:var(--cobalt)}
+.node.now .dot::after{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:1px solid var(--cobalt);opacity:.5;animation:pulse 2.6s ease-out infinite;
+}
+@keyframes pulse{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.node .co{
+  display:block;font-family:var(--sans);font-weight:700;font-size:.86rem;
+  letter-spacing:-.01em;line-height:1.25;
+}
+.node .yr{
+  display:block;font-family:var(--mono);font-size:.68rem;color:var(--ink-2);margin-top:3px;
+}
+.node:hover .dot,.node:focus-visible .dot{border-color:var(--cobalt);transform:scale(1.25)}
+.node:hover .co{color:var(--cobalt)}
+
+/* ---------- layout ---------- */
+.cols{display:grid;grid-template-columns:1fr 268px;gap:56px;padding-bottom:80px}
+h2{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-2);
+  margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--rule);
+}
+.summary{font-size:1.09rem;line-height:1.66;margin:0 0 52px;max-width:62ch}
+
+/* ---------- experience ---------- */
+.job{padding:22px 0 6px;border-top:1px solid var(--rule);transition:background .5s}
+.job:first-of-type{border-top:0;padding-top:4px}
+.job.flash{background:var(--cobalt-soft)}
+.job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px;margin-bottom:4px}
+.job h3{
+  font-family:var(--sans);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;margin:0;
+}
+.job .title{font-family:var(--sans);font-weight:500;font-size:.95rem;color:var(--ink-2)}
+.job .meta{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;color:var(--ink-2);
+  margin-bottom:14px;
+}
+.job ul{margin:0 0 18px;padding-left:0;list-style:none}
+.job li{position:relative;padding-left:20px;margin-bottom:9px;max-width:64ch}
+.job li::before{
+  content:"";position:absolute;left:2px;top:.68em;width:7px;height:1px;background:var(--ink-2);
+}
+.m{font-family:var(--mono);font-weight:500;font-size:.9em;color:var(--cobalt);font-style:normal}
+.tag{
+  display:inline-block;font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;
+  text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;
+  color:var(--ink-2);vertical-align:middle;
+}
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:36px;align-self:start}
+.rail h2{margin-top:0}
+.group{margin-bottom:22px}
+.group .k{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:6px;
+}
+.group .v{font-family:var(--sans);font-weight:500;font-size:.87rem;line-height:1.55}
+.edu{border-top:1px solid var(--rule);padding-top:20px;margin-top:34px}
+.edu .deg{font-family:var(--sans);font-weight:700;font-size:.95rem;line-height:1.3}
+.edu .uni{font-size:.9rem;color:var(--ink-2);margin-top:4px}
+.edu .yr{font-family:var(--mono);font-size:.7rem;color:var(--ink-2);margin-top:6px}
+
+footer{
+  border-top:1px solid var(--rule);padding:22px 0 40px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:var(--ink-2);
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  .cols{grid-template-columns:1fr;gap:44px}
+  .rail{position:static}
+  .hero{padding-top:48px}
+  .wrap{padding:0 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- print / save as PDF ---------- */
+@media print{
+  :root{--paper:#fff;--card:#fff;--ink:#000;--ink-2:#333;--rule:#bbb;--cobalt:#000}
+  body{font-size:10.5pt;line-height:1.45}
+  .links,.pipeline,footer{display:none}
+  .hero{padding:0}
+  h1{font-size:30pt}
+  .cols{grid-template-columns:1fr 200px;gap:26px;padding-bottom:0}
+  .summary{margin-bottom:22px;font-size:10.5pt}
+  .job{page-break-inside:avoid;padding-top:12px}
+  .job li{margin-bottom:4px}
+  .m{color:#000;font-weight:700}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Pune, India &nbsp;·&nbsp; Open to remote</p>
+    <h1>Sandeep<br>Kokare</h1>
+    <p class="role">Senior Python Engineer <span>— 8+ years in distributed systems &amp; data pipelines</span></p>
+
+    <ul class="links">
+      <li><a href="mailto:kokaresandeep94@gmail.com">kokaresandeep94@gmail.com</a></li>
+      <li><a href="tel:+917588059163">+91 75880 59163</a></li>
+      <li><a href="https://github.com/swolfyguy" target="_blank" rel="noopener">github.com/swolfyguy</a></li>
+      <li><a href="https://linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><button type="button" onclick="window.print()">Save as PDF</button></li>
+    </ul>
+
+    <section class="pipeline" aria-label="Career timeline">
+      <div class="pipeline-label">Career pipeline — select a stage</div>
+      <div class="dag">
+        <button class="node" data-go="accenture"><span class="dot"></span><span class="co">Accenture</span><span class="yr">2017 — 2020</span></button>
+        <button class="node" data-go="xpanxion"><span class="dot"></span><span class="co">Xpanxion</span><span class="yr">2020</span></button>
+        <button class="node" data-go="sms"><span class="dot"></span><span class="co">SMS Group</span><span class="yr">2020 — 2021</span></button>
+        <button class="node" data-go="ust"><span class="dot"></span><span class="co">UST Global</span><span class="yr">2021 — 2024</span></button>
+        <button class="node now" data-go="kynetec"><span class="dot"></span><span class="co">Kynetec</span><span class="yr">2024 — now</span></button>
+      </div>
+    </section>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cols">
+    <div>
+      <p class="summary">I build the backends and data pipelines that move large volumes of information reliably. Over eight years I've architected FastAPI and Flask services, modernised ETL workflows with Apache Airflow, PySpark and Databricks, and run ingestion pipelines handling <span class="m">100k+</span> events an hour across Azure and AWS — cutting process latency by <span class="m">40%</span> with AsyncIO and Kubernetes along the way.</p>
+
+      <h2>Experience</h2>
+
+      <article class="job" id="kynetec">
+        <div class="job-head"><h3>Kynetec</h3><span class="title">Sr. Python Developer</span></div>
+        <div class="meta">05/2024 — Present &nbsp;·&nbsp; Remote</div>
+        <ul>
+          <li>Implemented Apache Airflow to schedule and orchestrate complex ETL tasks, improving data processing efficiency by <span class="m">30%</span>.</li>
+          <li>Built high-performance backend services on FastAPI and AWS Lambda, making data-ingestion APIs <span class="m">25%</span> faster.</li>
+          <li>Architected and tuned PySpark ETL on Databricks, using GitHub Copilot to streamline complex transformations across large client datasets.</li>
+          <li>Designed automated validation checks inside the pipelines to hold <span class="m">100%</span> data integrity through monthly transformation cycles.</li>
+          <li>Built real-time monitoring and alerting so pipeline failures are caught early and downtime stays low.</li>
+        </ul>
+      </article>
+
+      <article class="job" id="ust">
+        <div class="job-head"><h3>UST Global</h3><span class="title">Sr. Python Developer</span></div>
+        <div class="meta">09/2021 — 05/2024 &nbsp;·&nbsp; Pune, India</div>
+        <ul>
+          <li>Orchestrated <span class="m">50+</span> data pipelines with Apache Airflow and AsyncIO, reducing process latency by <span class="m">40%</span>.</li>
+          <li>Ran big-data analytics in Azure Data Explorer on datasets over <span class="m">1&nbsp;TB</span>, processing <span class="m">100,000+</span> events per hour through Azure Event Hubs.</li>
+          <li>Researched and shipped pattern-matching algorithms for customer-behaviour analysis, turning the findings into production Python services.</li>
+          <li>Deployed and managed <span class="m">20+</span> applications on Kubernetes, improving deployment speed by <span class="m">30%</span> across five development teams.</li>
+          <li>Architected a Flask event-booking system on hexagonal architecture for a decoupled, scalable service design.</li>
+        </ul>
+      </article>
+
+      <article class="job" id="sms">
+        <div class="job-head"><h3>SMS Group India</h3><span class="title">Python Developer</span></div>
+        <div class="meta">12/2020 — 09/2021 &nbsp;·&nbsp; Pune, India</div>
+        <ul>
+          <li>Built REST APIs with FastAPI supporting <span class="m">15,000</span> daily transactions with seamless frontend integration.</li>
+          <li>Managed database migrations and schema evolution with PostgreSQL, Alembic and SQLAlchemy, improving retrieval speeds by <span class="m">30%</span>.</li>
+          <li><span class="tag">Gartner / Zuora</span> Designed serverless workflows on AWS Step Functions and Lambda, cutting manual intervention by <span class="m">50%</span> through event-driven orchestration.</li>
+          <li>Containerised applications with Docker for consistent builds across every environment.</li>
+        </ul>
+      </article>
+
+      <article class="job" id="xpanxion">
+        <div class="job-head"><h3>Xpanxion</h3><span class="title">Python Developer</span></div>
+        <div class="meta">02/2020 — 12/2020 &nbsp;·&nbsp; Pune, India</div>
+        <ul>
+          <li>Wrote and integrated automation scripts across StackStorm and SIEM systems, automating response to <span class="m">1,000+</span> monthly security events and cutting manual threat-triage time by <span class="m">60%</span>.</li>
+          <li>Led third-party integrations and enforced security policy for Azure Data Explorer, securing sensitive data access for <span class="m">500+</span> enterprise users.</li>
+          <li>Managed pack development and container orchestration on Kubernetes, taking deployment cycles from days to hours.</li>
+          <li>Mentored <span class="m">30+</span> junior developers through code reviews and architecture walkthroughs.</li>
+        </ul>
+      </article>
+
+      <article class="job" id="accenture">
+        <div class="job-head"><h3>Accenture</h3><span class="title">Junior Python Developer</span></div>
+        <div class="meta">01/2017 — 02/2020 &nbsp;·&nbsp; Mumbai, India</div>
+        <ul>
+          <li>Engineered and refactored Django REST APIs, improving processing speed by <span class="m">30%</span> and page-load efficiency by <span class="m">20%</span>.</li>
+          <li>Administered SQLite and PostgreSQL, adding indexing and query optimisation that cut retrieval times by <span class="m">25%</span> on high-traffic modules.</li>
+          <li>Integrated AngularJS frontends with Python backends alongside cross-functional teams.</li>
+          <li>Improved logging and error tracking, lifting API integration success rates by <span class="m">35%</span> and reducing post-deployment defects by <span class="m">50%</span>.</li>
+        </ul>
+      </article>
+    </div>
+
+    <aside class="rail">
+      <h2>Stack</h2>
+      <div class="group"><div class="k">Languages</div><div class="v">Python (expert), SQL, AsyncIO, multi-threading</div></div>
+      <div class="group"><div class="k">Big data &amp; ETL</div><div class="v">PySpark, Apache Airflow, Databricks, Apache Spark, Azure Data Factory</div></div>
+      <div class="group"><div class="k">Backend</div><div class="v">FastAPI, Flask, Django, hexagonal architecture</div></div>
+      <div class="group"><div class="k">Cloud</div><div class="v">Azure — ADX, Event Hubs, Sentinel<br>AWS — Lambda, Step Functions, SQS, DynamoDB</div></div>
+      <div class="group"><div class="k">DevOps</div><div class="v">Docker, Kubernetes, StackStorm, Bitbucket Pipelines, CI/CD</div></div>
+      <div class="group"><div class="k">Data stores</div><div class="v">PostgreSQL, Redis, DynamoDB, SQLAlchemy, Alembic</div></div>
+      <div class="group"><div class="k">AI-assisted dev</div><div class="v">GitHub Copilot — prompt engineering &amp; code optimisation</div></div>
+
+      <div class="edu">
+        <h2>Education</h2>
+        <div class="deg">B.E. Computer Engineering</div>
+        <div class="uni">Savitribai Phule Pune University</div>
+        <div class="yr">2012 — 2016</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>Sandeep Kokare · Senior Python Engineer</span>
+    <span>kokaresandeep94@gmail.com</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.node').forEach(function(n){
+  n.addEventListener('click', function(){
+    var el = document.getElementById(n.dataset.go);
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth', block:'center'});
+    el.classList.add('flash');
+    setTimeout(function(){ el.classList.remove('flash'); }, 1400);
+  });
+});
+</script>
+</body>
+</html>
