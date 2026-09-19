@@ -10,17 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#E9EBEF;
-  --card:#F5F6F9;
-  --ink:#14161A;
-  --ink-2:#525A66;
-  --rule:#C7CCD6;
-  --cobalt:#1B3FD8;
-  --cobalt-soft:rgba(27,63,216,.09);
+  --paper:#EEF0F5;
+  --card:#F6F7FA;
+  --ink:#12141B;
+  --ink-2:#565E6C;
+  --rule:#CDD3E0;
+  --cobalt:#2540E0;
+  --violet:#8B3FE8;
+  --grad:linear-gradient(100deg,var(--cobalt) 10%,var(--violet) 90%);
+  --cobalt-soft:rgba(37,64,224,.08);
   --sans:"Archivo",system-ui,sans-serif;
   --serif:"Source Serif 4",Georgia,serif;
   --mono:"JetBrains Mono",ui-monospace,monospace;
 }
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sheen{0%{background-position:0% 50%}100%{background-position:160% 50%}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -37,18 +41,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-off
 .eyebrow{
   font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink-2);margin:0 0 18px;
+  animation:riseIn .6s cubic-bezier(.2,.7,.3,1) both;
 }
 h1{
   font-family:var(--sans);font-weight:800;
   font-size:clamp(2.7rem,8.4vw,5.4rem);line-height:.94;letter-spacing:-.035em;
   margin:0 0 16px;
+  background:var(--grad);background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:riseIn .7s cubic-bezier(.2,.7,.3,1) both, sheen 5s ease-in-out .8s 1;
 }
 .role{
   font-family:var(--sans);font-weight:600;font-size:clamp(1rem,2.4vw,1.35rem);
   letter-spacing:-.01em;margin:0 0 26px;color:var(--ink);
+  animation:riseIn .6s cubic-bezier(.2,.7,.3,1) .12s both;
 }
 .role span{color:var(--ink-2);font-weight:500}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 46px;padding:0;list-style:none}
+.links{
+  display:flex;flex-wrap:wrap;gap:10px;margin:0 0 46px;padding:0;list-style:none;
+  animation:riseIn .6s cubic-bezier(.2,.7,.3,1) .22s both;
+}
 .links a,.links button{
   font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;
   border:1px solid var(--rule);background:transparent;color:var(--ink);
@@ -62,6 +74,7 @@ h1{
   border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
   padding:22px 0 24px;margin-bottom:56px;overflow-x:auto;
   scrollbar-width:thin;
+  animation:riseIn .6s cubic-bezier(.2,.7,.3,1) .32s both;
 }
 .pipeline-label{
   font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
@@ -80,10 +93,10 @@ h1{
   position:relative;z-index:1;display:block;width:11px;height:11px;border-radius:50%;
   background:var(--paper);border:2px solid var(--ink-2);margin-bottom:12px;transition:.18s;
 }
-.node.now .dot{background:var(--cobalt);border-color:var(--cobalt)}
+.node.now .dot{background:var(--grad);border-color:transparent}
 .node.now .dot::after{
   content:"";position:absolute;inset:-6px;border-radius:50%;
-  border:1px solid var(--cobalt);opacity:.5;animation:pulse 2.6s ease-out infinite;
+  border:1px solid var(--violet);opacity:.5;animation:pulse 2.6s ease-out infinite;
 }
 @keyframes pulse{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.5);opacity:0}}
 .node .co{
@@ -93,7 +106,7 @@ h1{
 .node .yr{
   display:block;font-family:var(--mono);font-size:.68rem;color:var(--ink-2);margin-top:3px;
 }
-.node:hover .dot,.node:focus-visible .dot{border-color:var(--cobalt);transform:scale(1.25)}
+.node:hover .dot,.node:focus-visible .dot{border-color:var(--violet);transform:scale(1.25)}
 .node:hover .co{color:var(--cobalt)}
 
 /* ---------- layout ---------- */
@@ -106,8 +119,18 @@ h2{
 .summary{font-size:1.09rem;line-height:1.66;margin:0 0 52px;max-width:62ch}
 
 /* ---------- experience ---------- */
-.job{padding:22px 0 6px;border-top:1px solid var(--rule);transition:background .5s}
+.job{
+  position:relative;padding:22px 0 6px 18px;margin-left:-18px;
+  border-top:1px solid var(--rule);transition:background .5s;
+}
+.job::before{
+  content:"";position:absolute;left:0;top:22px;bottom:6px;width:2px;
+  background:var(--grad);transform:scaleY(0);transform-origin:top;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.job:hover::before,.job.flash::before{transform:scaleY(1)}
 .job:first-of-type{border-top:0;padding-top:4px}
+.job:first-of-type::before{top:4px}
 .job.flash{background:var(--cobalt-soft)}
 .job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px;margin-bottom:4px}
 .job h3{
@@ -123,7 +146,7 @@ h2{
 .job li::before{
   content:"";position:absolute;left:2px;top:.68em;width:7px;height:1px;background:var(--ink-2);
 }
-.m{font-family:var(--mono);font-weight:500;font-size:.9em;color:var(--cobalt);font-style:normal}
+.m{font-family:var(--mono);font-weight:500;font-size:.9em;color:var(--violet);font-style:normal}
 .tag{
   display:inline-block;font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;
   text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;
@@ -175,6 +198,8 @@ footer{
   .job li{margin-bottom:4px}
   .m{color:#000;font-weight:700}
   a{color:#000}
+  h1{-webkit-background-clip:initial;background-clip:initial;background:none;color:#000;animation:none}
+  .eyebrow,.role,.links,.pipeline,.job::before{animation:none}
 }
 </style>
 </head>
